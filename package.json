@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "export SET NODE_OPTIONS=--openssl-legacy-provider && build-storybook -c .storybook",
+    "build-storybook": "build-storybook -c .storybook",
     "serve-storybook": "serve storybook-static"
   },
   "author": "kimsuyoung",
