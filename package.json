@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook",
+    "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook -c .storybook",
     "serve-storybook": "serve storybook-static"
   },
   "author": "kimsuyoung",
@@ -49,5 +49,8 @@
   },
   "engines": {
     "node": "16.x"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
   }
 }
