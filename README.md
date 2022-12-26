@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+node -v 16.
+npm -v.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. 컴포넌트 구성에 필요한 폴더 구조 만들기
 
-## Available Scripts
+```
+npm install react react-dom @types/react node-sass -D
+```
 
-In the project directory, you can run:
+2. typescript
+   react나 react dom은 다른 리액트 프로젝트에서 디자인 시스템으로 사용될것이므로, peer dependency로 넣어주도록 변경해줍니다.
 
-### `yarn start`
+단, 중요한 부분이 맨 윗줄 두가지에 있는데요, "declaration": true 와 "declarationDir": "./build" 를 명시해 줌으로써, 우리가 만들 디자인 시스템의 타입들을 자동으로 생성해 빌드 폴더에 넣어주는 역할을 하게 됩니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+그리고, 중요한 사항이 있는데 component 를 제작한 tsx파일에서 interface나 enum을 export 해주지 않으면 declaration 정의를 실패해 build가 실패하는 케이스가 있으니, 모든 interface나 enum은 export해주는것이 빌드 실패를 막을수 있습니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+또한, preserveModules: true 로 옵션을 줌으로써 기존 폴더구조 그대로 build를 할수 있게 하여 그 구조 그대로 아래와 가지 두가지 방식으로 import 할수 있게 됩니다. https://rollupjs.org/guide/en/#preservemodules 에 가시면 자세한 설명이 나와있으니 참고바랍니다.
 
-### `yarn test`
+```
+npm install -D typescript
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. rollup 설정에 필요한 라이브러리들을 아래 명령어로 설치 해줍니다.
 
-### `yarn build`
+```
+npm install -D rollup rollup-plugin-typescript2 rollup-plugin-postcss @rollup/plugin-commonjs @rollup/plugin-node-resolve rollup-plugin-peer-deps-external @rollup/plugin-image
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install -D @storybook/react @babel/core babel-preset-react-app babel-loader tailwindcss postcss autoprefixer
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm install -D html-webpack-plugin
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install -D @storybook/addon-links @storybook/addon-essentials @storybook/addon-interactions
 
-### `yarn eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## bugs
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+** require() of ES Module E:\design-kit2\postcss.config.js from E:\design-kit2\node_modules\lilconfig\dist\index.js not supported. **
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm install rollup@~2.66
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Webpack5 기반 프로젝트에 Storybook 설정하기
+https://kimyejin.tistory.com/entry/Webpack5-%EA%B8%B0%EB%B0%98-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90-Storybook-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0
 
-## Learn More
+## refer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://github.com/ecklf/react-tailwind-storybook/blob/master/.storybook/main.js
