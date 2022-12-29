@@ -1,18 +1,24 @@
 import * as React from "react";
+import "../../tailwind.css";
 
-export interface ITextInput {
+export interface ITextInput
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
    * input 타입
    */
   type: string;
   /**
-   * input 네임
-   */
-  name: string;
-  /**
    * input id (+ input.test role 값 부여)
    */
   id: string;
+  /**
+   * input value
+   */
+  value?: string | number;
+  /**
+   * input 네임
+   */
+  name?: string;
   /**
    * input 라벨
    */
@@ -40,9 +46,10 @@ export interface ITextInput {
 }
 
 export const Input: React.FC<ITextInput> = ({
-  id = "input-field",
   type = "text",
+  id = "input-field",
   name = "input-field",
+  value,
   label,
   hasError,
   onChange,
@@ -65,9 +72,10 @@ export const Input: React.FC<ITextInput> = ({
           </label>
         )}
         <input
-          id={id}
           type={type}
+          id={id}
           name={name}
+          value={value}
           onChange={onChange}
           onBlur={onBlur}
           className={[defaultCSS, actionCSS, errorMode, className].join(" ")}

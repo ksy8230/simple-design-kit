@@ -22,25 +22,26 @@ export default {
     {
       dir: pkg.main,
       format: "cjs",
-      sourcemap: true,
+      preserveModules: true,
     },
     {
       dir: pkg.module,
       format: "es",
-      sourcemap: true,
+      preserveModules: true,
     },
   ],
-  preserveModules: true,
   plugins: [
     peerDepsExternal(),
     postcss({
-      plugins: [tailwindcss("./tailwind.config.js"), require("autoprefixer")],
+      plugins: [
+        tailwindcss("./tailwind.config.js"),
+        require("autoprefixer"),
+        require("cssnano")({ preset: "default" }),
+      ],
     }),
     resolve(),
     typescript({
-      useTsconfigDeclarationDir: true,
-      exclude: ["**/__tests__/**", "**/*.stories.tsx"],
-      clean: true,
+      tsconfig: "./tsconfig.json",
     }),
     commonjs({
       include: ["node_modules/**"],

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "build",
-    // "baseUrl": "./",
+    "declarationDir": "./build",
+    "baseUrl": "./",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
@@ -12,8 +12,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "typeRoots": ["./types"]
+    // "outDir": "./build"
   },
   "include": ["types"]
 }

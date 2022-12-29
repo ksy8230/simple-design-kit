@@ -1,5 +1,5 @@
-node -v 16.
-npm -v.
+node -v.14.17.5
+npm -v.6.14.14
 
 1. 컴포넌트 구성에 필요한 폴더 구조 만들기
 
@@ -35,7 +35,8 @@ npm install -D html-webpack-plugin
 ```
 
 ```
-npm install -D @storybook/addon-links @storybook/addon-essentials @storybook/addon-interactions
+npm install -D @storybook/addon-links @storybook/a
+ddon-essentials @storybook/addon-interactions
 
 ```
 
@@ -51,3 +52,10 @@ https://kimyejin.tistory.com/entry/Webpack5-%EA%B8%B0%EB%B0%98-%ED%94%84%EB%A1%9
 ## refer
 
 https://github.com/ecklf/react-tailwind-storybook/blob/master/.storybook/main.js
+
+## deploy
+
+vercel
+
+- https://simple-design-kit.netlify.app/
+- simple-design-kit.vercel.app
