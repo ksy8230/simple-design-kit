@@ -8,7 +8,5 @@ export default {
   argTypes: {},
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => (
-  <Input {...args} value="1" />
-);
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 export const Default = Template.bind({});

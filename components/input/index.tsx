@@ -59,7 +59,7 @@ export const Input: React.FC<ITextInput> = ({
   ...props
 }) => {
   const defaultCSS =
-    "block w-full appearance-none rounded-md border px-3 py-2 text-gray-900 placeholder-gray-500";
+    "block w-full max-h-[2.25rem] appearance-none rounded-md border px-3 py-2 text-gray-900 placeholder-gray-500";
   const actionCSS =
     "focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500";
   const errorMode = hasError ? "border-red-500 border-2" : "border-gray-300";
