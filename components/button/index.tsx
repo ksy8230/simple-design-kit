@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface IButton extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size: "sm" | "base" | "lg";
+  size?: "sm" | "base" | "lg";
   spinner?: boolean;
   weight?: "solid" | "ghost" | "outline";
 }
