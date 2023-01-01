@@ -1,9 +1,9 @@
 {
   "name": "simple-design-kit",
-  "version": "1.0.17",
+  "version": "0.0.1",
   "description": "",
-  "main": "build/index.js",
-  "module": "build/index.es.js",
+  "main": "build/cjs",
+  "module": "build/es",
   "files": [
     "build"
   ],
